@@ -1,7 +1,6 @@
 import { API_URL } from "@/Utils/Constants";
 import { Products } from "@/Utils/type";
 import Link from "next/link";
-import Loading from "./Loading";
 
 async function Shop() {
   const response = await fetch(API_URL);
@@ -10,7 +9,7 @@ async function Shop() {
   return (
     <div className="bg-sky-200  mr-2  w-100% text-base-100  p-4 ">
       <h2 className="text-2xl font-bold text-pink-900 m-8">All Products</h2>
-      <div className="">
+      <div>
         <div className="m-8">
           <div className="badge badge-primary badge-lg mr-2 p-4 hover:scale-100  transition duration-300 ease-out">
             All
@@ -44,14 +43,14 @@ async function Shop() {
         <div className="grid grid-cols-3 gap-6 p-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
           {products.map((products) => (
             <div
-              className="card bg-white w-90 transition duration-300 ease-out h-100 shadow-sm text-base  relative mt-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+              className="card bg-white w-90  h-100 shadow-sm text-base  relative mt-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
               key={products.id}
             >
               <figure>
                 <img src={products.image} width={200} height={300} />
               </figure>
               <div className="card-body text-base-100 ">
-                <Link href={`/products/${products.id}`} className="card-title">
+                <Link href={`/Shop/${products.id}`} className="card-title">
                   {products.title}
                 </Link>
                 <p className="text-xl text-blue-600 font-semibold font-poppins ">

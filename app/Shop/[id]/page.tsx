@@ -1,20 +1,19 @@
 import { API_URL } from "@/Utils/Constants";
 import { promises } from "node:dns";
-import React from "react";
 type props = {
   params: Promise<{ id: string }>;
 };
 
 async function productDetails(props: props) {
   const id = (await props.params).id;
-  const url = API_URL + id;
+  const url = `${API_URL}/${id}`;
   const response = await fetch(url);
   const product = await response.json();
-  //   console.log(product);
+
   return (
     <div>
       <div
-        className="card bg-amber-300 w-96  shadow-sm text-base m-10"
+        className="card bg-white w-96 h-110 shadow-sm text-base-100 m-10"
         key={product.id}
       >
         <figure>
